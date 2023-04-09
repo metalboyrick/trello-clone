@@ -1,4 +1,4 @@
-import type { ImageData } from "@/server/types";
+import type { ImageData } from "@/server/common/types";
 import type { User } from "./User";
 
 export interface Card {
