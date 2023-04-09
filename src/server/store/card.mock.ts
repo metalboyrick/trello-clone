@@ -41,4 +41,17 @@ export const MOCK_CARDS: Card[] = [
     shared: 0,
     order: 0,
   },
+  {
+    id: 4,
+    slot: "In Progress",
+    headline: "Learn solidity",
+    description: "Get them homeworks by noon!",
+    img: null,
+    tags: ["projects"],
+    users: [],
+    commentCount: 0,
+    likes: 0,
+    shared: 0,
+    order: 1,
+  },
 ];

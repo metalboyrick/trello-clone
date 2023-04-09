@@ -3,7 +3,7 @@ import { injectable, container } from "tsyringe";
 
 import { MessageResponseDto } from "@/server/common/dto";
 
-import { GetCardsResponseDto } from "./kanban.dto";
+import { GetCardsResponseDto, MoveCardDto } from "./kanban.dto";
 import { KanbanService } from "./kanban.service";
 
 @injectable()
@@ -12,14 +12,18 @@ class KanbanController {
 
   // api/kanban
   getCards(req: NextApiRequest, res: NextApiResponse<GetCardsResponseDto>) {
-    console.log(this.kanbanService);
-
     res.status(200).json(this.kanbanService.getCards());
   }
 
   // api/kanban/move
   moveCard(req: NextApiRequest, res: NextApiResponse<MessageResponseDto>) {
-    res.status(200);
+    try {
+      const moveCardDto: MoveCardDto = req.body;
+      this.kanbanService.moveCard(moveCardDto);
+      res.status(200).json({ status: 200, message: "success" });
+    } catch (e: any) {
+      res.status(400).json({ status: 400, message: e.message });
+    }
   }
 }
 
