@@ -1,11 +1,15 @@
-import { ICard } from "./kanban.interfaces";
+import { injectable } from "tsyringe";
 
+import { ICard } from "./kanban.interfaces";
+import { KanbanDao } from "./kanban.dao";
+
+@injectable()
 export class KanbanService {
-  constructor() {}
+  constructor(private readonly kanbanDao: KanbanDao) {}
 
   getCards(): ICard[] {
-    return [];
+    return this.kanbanDao.getCards();
   }
 
-  moveCard(prevCard: ICard, newSlot: string, newOrder: string) {}
+  moveCard(prevCard: ICard, newSlot: string, newOrder: number) {}
 }

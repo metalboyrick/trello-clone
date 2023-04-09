@@ -1,10 +1,10 @@
+import store from "@/server/store";
+
 import { ICard } from "./kanban.interfaces";
 
 export class KanbanDao {
-  constructor() {}
-
   getCards(): ICard[] {
-    return [];
+    return store.cards;
   }
 
   getCardsBySlot(slot: string): ICard[] {

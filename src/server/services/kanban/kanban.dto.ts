@@ -2,7 +2,7 @@ import { ICard } from "./kanban.interfaces";
 
 export type MoveCardDto = {
   card: ICard;
-  destSlot: number;
+  destSlot: string;
   destOrder: number;
 };
 

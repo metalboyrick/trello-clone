@@ -1,3 +1,8 @@
+import "reflect-metadata";
 import kanbanController from "@/server/services/kanban/kanban.controller";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default kanbanController.moveCard;
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === "POST") kanbanController.moveCard(req, res);
+  else res.status(405).json({});
+}
