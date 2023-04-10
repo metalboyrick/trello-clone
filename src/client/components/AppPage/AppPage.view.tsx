@@ -1,5 +1,6 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
+import SlotColumn from "@/client/components/SlotColumn";
 import Card from "@/client/components/Card";
 
 import { AppPageProps } from "./AppPage.types";
@@ -11,17 +12,15 @@ function AppPage({ initialData = null }: AppPageProps) {
   return (
     <div>
       <DragDropContext onDragEnd={handleDragEnd}>
-        <div className="flex">
-          <Droppable droppableId="list1">
-            {(provided) => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                {data.map((item, index) => (
-                  <Card key={index} index={index} text={item} />
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
+        <div className="flex flex-row">
+          <SlotColumn
+            name="Todo"
+            cardData={data.filter((item) => item.slot === "Todo")}
+          />
+          <SlotColumn
+            name="In Progress"
+            cardData={data.filter((item) => item.slot === "In Progress")}
+          />
         </div>
       </DragDropContext>
     </div>

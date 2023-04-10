@@ -1,8 +1,25 @@
+import { OnDragEndResponder } from "react-beautiful-dnd";
+
+import useGetCards from "@/client/hooks/queries/useGetCards";
+import usePostMoveCard from "@/client/hooks/mutations/usePostMoveCard";
+
 function useController() {
-  const handleDragEnd = (result: any) => {
-    console.log(result);
+  const { data, getCards } = useGetCards();
+  const { moveCard } = usePostMoveCard();
+
+  const handleDragEnd: OnDragEndResponder = async (result) => {
+    const { destination, draggableId } = result;
+
+    if (!destination) return;
+
+    await moveCard({
+      card: data.filter((item) => item.id === Number(draggableId))[0],
+      destSlot: destination.droppableId,
+      destOrder: destination.index,
+    });
+
+    await getCards();
   };
-  const data = ["MAMA", "PAPA", "BRO"];
 
   return { handleDragEnd, data };
 }
