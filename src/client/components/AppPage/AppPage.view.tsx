@@ -5,24 +5,28 @@ import Card from "@/client/components/Card";
 
 import { AppPageProps } from "./AppPage.types";
 import useController from "./AppPage.controller";
+import Spinner from "../Spinner/Spinner.view";
 
 function AppPage({ initialData = null }: AppPageProps) {
-  const { handleDragEnd, data } = useController();
+  const { handleDragEnd, data, loading } = useController();
 
   return (
     <div>
-      <DragDropContext onDragEnd={handleDragEnd}>
-        <div className="flex flex-row">
-          <SlotColumn
-            name="Todo"
-            cardData={data.filter((item) => item.slot === "Todo")}
-          />
-          <SlotColumn
-            name="In Progress"
-            cardData={data.filter((item) => item.slot === "In Progress")}
-          />
-        </div>
-      </DragDropContext>
+      {loading && <Spinner />}
+      {!loading && (
+        <DragDropContext onDragEnd={handleDragEnd}>
+          <div className="flex flex-row">
+            <SlotColumn
+              name="Todo"
+              cardData={data.filter((item) => item.slot === "Todo")}
+            />
+            <SlotColumn
+              name="In Progress"
+              cardData={data.filter((item) => item.slot === "In Progress")}
+            />
+          </div>
+        </DragDropContext>
+      )}
     </div>
   );
 }
