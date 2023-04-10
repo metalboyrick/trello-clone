@@ -1,6 +1,7 @@
 import { Card } from "../models/Card";
 import { BLUE, GREEN, PURPLE, RED, VIOLET } from "./colorCodes";
 import { MOCK_USERS } from "./user.mock";
+import image1 from "./assets/image-1.png";
 
 export const MOCK_CARDS: Card[] = [
   {
@@ -8,7 +9,7 @@ export const MOCK_CARDS: Card[] = [
     slot: "Todo",
     headline: "Wash the dishes",
     description: "Get them dishes clean by noon!",
-    img: null,
+    img: image1.src,
     tags: [BLUE, RED, VIOLET],
     users: [],
     commentCount: 0,
