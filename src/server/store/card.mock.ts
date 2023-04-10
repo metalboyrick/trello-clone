@@ -1,4 +1,5 @@
 import { Card } from "../models/Card";
+import { BLUE, GREEN, PURPLE, RED, VIOLET } from "./colorCodes";
 import { MOCK_USERS } from "./user.mock";
 
 export const MOCK_CARDS: Card[] = [
@@ -8,7 +9,7 @@ export const MOCK_CARDS: Card[] = [
     headline: "Wash the dishes",
     description: "Get them dishes clean by noon!",
     img: null,
-    tags: ["urgent", "housework"],
+    tags: [BLUE, RED, VIOLET],
     users: [],
     commentCount: 0,
     likes: 0,
@@ -21,7 +22,7 @@ export const MOCK_CARDS: Card[] = [
     headline: "Do my homework",
     description: "Get them homeworks by noon!",
     img: null,
-    tags: ["urgent", "schoolwork"],
+    tags: [GREEN, PURPLE],
     users: MOCK_USERS,
     commentCount: 0,
     likes: 0,
