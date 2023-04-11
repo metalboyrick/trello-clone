@@ -16,7 +16,7 @@ import useController from "./AppPage.controller";
 import { COLUMNS, USER_IMAGES } from "./AppPage.constants";
 
 function AppPage({ initialData = null }: AppPageProps) {
-  const { handleDragEnd, data, loading } = useController();
+  const { handleDragEnd, data, loading, boardRef } = useController();
 
   return (
     <div>
@@ -54,7 +54,7 @@ function AppPage({ initialData = null }: AppPageProps) {
             </div>
           </div>
         </div>
-        <div className="overflow-x-scroll">
+        <div ref={boardRef} className="overflow-x-scroll">
           {loading && (
             <div className="w-full h-full flex justify-center items-center">
               <Spinner />
