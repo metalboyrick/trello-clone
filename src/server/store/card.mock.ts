@@ -1,5 +1,6 @@
 import { Card } from "../models/Card";
-import { BLUE, GREEN, PURPLE, RED, VIOLET } from "./colorCodes";
+import { BLUE, GREEN, PURPLE, RED, VIOLET, ORANGE } from "./colors";
+import { banners } from "./images";
 import { MOCK_USERS } from "./user.mock";
 import image1 from "./assets/image-1.png";
 
@@ -9,12 +10,12 @@ export const MOCK_CARDS: Card[] = [
     slot: "Todo",
     headline: "Wash the dishes",
     description: "Get them dishes clean by noon!",
-    img: image1.src,
+    img: banners.image1.src,
     tags: [BLUE, RED, VIOLET],
     users: [],
-    commentCount: 0,
-    likes: 0,
-    shared: 0,
+    commentCount: 20,
+    likes: 10,
+    shared: 12,
     order: 0,
   },
   {
@@ -22,11 +23,11 @@ export const MOCK_CARDS: Card[] = [
     slot: "Todo",
     headline: "Do my homework",
     description: "Get them homeworks by noon!",
-    img: null,
+    img: banners.image2.src,
     tags: [GREEN, PURPLE],
     users: MOCK_USERS,
-    commentCount: 0,
-    likes: 0,
+    commentCount: 2,
+    likes: 5,
     shared: 0,
     order: 1,
   },
@@ -35,8 +36,8 @@ export const MOCK_CARDS: Card[] = [
     slot: "In Progress",
     headline: "Code hackathon project",
     description: "Get them homeworks by noon!",
-    img: null,
-    tags: ["projects"],
+    img: banners.image3.src,
+    tags: [ORANGE, PURPLE],
     users: [],
     commentCount: 0,
     likes: 0,
@@ -49,7 +50,7 @@ export const MOCK_CARDS: Card[] = [
     headline: "Learn solidity",
     description: "Get them homeworks by noon!",
     img: null,
-    tags: ["projects"],
+    tags: [RED, GREEN],
     users: [],
     commentCount: 0,
     likes: 0,

@@ -6,6 +6,7 @@ import heart from "./assets/heart.svg";
 import messageSquare from "./assets/message-square.svg";
 
 import { CardProps } from "./Card.types";
+import UserDisplay from "../UserDisplay";
 
 function Card({
   id,
@@ -40,13 +41,13 @@ function Card({
           className="bg-zinc-100 text-black max-w-lg px-4 py-3 rounded-md flex flex-col min-w-[350px] mb-2"
         >
           {img && (
-            <div className="relative w-full h-40 mb-2">
+            <div className="relative w-full h-40 mb-4">
               <Image src={img} alt="cover image" fill className="rounded-md" />
             </div>
           )}
 
           {tags.length > 0 && (
-            <div className="flex gap-x-1 my-2">
+            <div className="flex gap-x-1 mb-2">
               {tags.map((item) => renderColorCode(item))}
             </div>
           )}
@@ -55,7 +56,28 @@ function Card({
             {description}
           </p>
           <div className="flex justify-between items-center mt-4">
-            <div>users</div>
+            <div className="flex gap-x-[-10px]">
+              {users.length > 0 &&
+                users.map((item, index) => {
+                  if (index === 0)
+                    return (
+                      <UserDisplay key={item.id} id={item.id} img={item.img} />
+                    );
+
+                  return (
+                    <UserDisplay
+                      key={item.id}
+                      id={item.id}
+                      img={item.img}
+                      className="-ml-4"
+                    />
+                  );
+                })}
+              <UserDisplay
+                id={-1}
+                className={users.length > 0 ? "-ml-4" : ""}
+              />
+            </div>
             <div className="w-6/12 text-sm flex justify-between">
               <div className="flex gap-1 font-light text-black">
                 <div className="font-light text-black opacity-30">
