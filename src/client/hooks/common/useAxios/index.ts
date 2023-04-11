@@ -2,7 +2,7 @@ import axios from "axios";
 import { makeUseAxios } from "axios-hooks";
 
 const axiosClient = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_HOST}/api`,
+  baseURL: `${process.env.NEXT_PUBLIC_HOST as string}/api`,
   headers: {
     common: {
       "Content-Type": "application/json",
