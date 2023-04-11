@@ -61,14 +61,18 @@ function Card({
                 users.map((item, index) => {
                   if (index === 0)
                     return (
-                      <UserDisplay key={item.id} id={item.id} img={item.img} />
+                      <UserDisplay
+                        key={item.id}
+                        id={item.id}
+                        img={item.img as string}
+                      />
                     );
 
                   return (
                     <UserDisplay
                       key={item.id}
                       id={item.id}
-                      img={item.img}
+                      img={item.img as string}
                       className="-ml-4"
                     />
                   );
