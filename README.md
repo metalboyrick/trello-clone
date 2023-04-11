@@ -17,7 +17,7 @@ Next, run locally
 yarn dev
 ```
 
-The project should be live on http://localhost:3000.
+The project should be live on https://trello-clone-dusky.vercel.app/.
 
 ## Demo
 
