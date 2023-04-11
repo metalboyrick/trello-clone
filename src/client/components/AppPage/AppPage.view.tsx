@@ -13,6 +13,7 @@ import cardboard from "./assets/cardboard.svg";
 
 import { AppPageProps } from "./AppPage.types";
 import useController from "./AppPage.controller";
+import { COLUMNS } from "./AppPage.constants";
 
 function AppPage({ initialData = null }: AppPageProps) {
   const { handleDragEnd, data, loading } = useController();
@@ -57,14 +58,13 @@ function AppPage({ initialData = null }: AppPageProps) {
           {!loading && (
             <DragDropContext onDragEnd={handleDragEnd}>
               <div className="flex flex-row gap-2">
-                <SlotColumn
-                  name="Todo"
-                  cardData={data.filter((item) => item.slot === "Todo")}
-                />
-                <SlotColumn
-                  name="In Progress"
-                  cardData={data.filter((item) => item.slot === "In Progress")}
-                />
+                {COLUMNS.map((columnName, index) => (
+                  <SlotColumn
+                    key={index}
+                    name={columnName}
+                    cardData={data.filter((item) => item.slot === columnName)}
+                  />
+                ))}
               </div>
             </DragDropContext>
           )}
