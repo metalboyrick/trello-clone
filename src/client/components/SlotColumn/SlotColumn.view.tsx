@@ -2,6 +2,7 @@ import { Droppable } from "react-beautiful-dnd";
 import Image from "next/image";
 
 import Card from "@/client/components/Card";
+import AddCardButton from "@/client/components/AddCardButton";
 
 import { SlotColumnProps } from "./SlotColumn.types";
 import tripleDotsIcon from "./assets/triple-dots-icon.svg";
@@ -20,6 +21,7 @@ function SlotColumn({ name, cardData }: SlotColumnProps) {
             {sortedCardData.map((item, index) => (
               <Card key={index} {...item} />
             ))}
+            <AddCardButton />
             {provided.placeholder}
           </div>
         )}
