@@ -19,10 +19,10 @@ function AppPage({ initialData = null }: AppPageProps) {
   const { handleDragEnd, data, loading } = useController();
 
   return (
-    <div className="w-full">
+    <div>
       <Navbar />
       <div className="flex flex-col w-11/12 mx-auto">
-        <div className="flex flex-col md:flex-row justify-between my-5 items-left md:items-center">
+        <div className="flex flex-col md:flex-row justify-between my-5 items-left md:items-center w-full">
           <div className="md:flex-1 text-medium text-lg mr-10">Brackets</div>
           <div className="flex w-full md:flex-3 justify-between items-center">
             <div className="flex justify-start gap-1 text-black opacity-40">
@@ -54,7 +54,7 @@ function AppPage({ initialData = null }: AppPageProps) {
             </div>
           </div>
         </div>
-        <div>
+        <div className="overflow-x-scroll">
           {loading && (
             <div className="w-full h-full flex justify-center items-center">
               <Spinner />
@@ -62,7 +62,7 @@ function AppPage({ initialData = null }: AppPageProps) {
           )}
           {!loading && (
             <DragDropContext onDragEnd={handleDragEnd}>
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-4">
                 {COLUMNS.map((columnName, index) => (
                   <SlotColumn
                     key={index}
