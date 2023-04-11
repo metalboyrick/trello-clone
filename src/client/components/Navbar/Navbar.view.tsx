@@ -14,7 +14,7 @@ import search from "./assets/search-outline.svg";
 function Navbar() {
   return (
     <div className="flex justify-between py-1 px-4 border-gray-100 border-b">
-      <div className="flex items-center w-4/12 gap-2">
+      <div className="flex items-center w-8/12 gap-1">
         <Image
           src={trelloLogo}
           alt="trello logo"
@@ -22,7 +22,7 @@ function Navbar() {
           height={30}
           className="hidden md:block"
         />
-        <VerticalDivider className="hidden md:flex" />
+        <VerticalDivider className="hidden md:flex mx-2" />
         <div className="flex items-center gap-2">
           <Image
             src={trelloMarkBlue}
@@ -32,7 +32,7 @@ function Navbar() {
           />
           <div className="hidden md:block">Boards</div>
         </div>
-        <VerticalDivider className="hidden md:flex" />
+        <VerticalDivider className="hidden md:flex  mx-2" />
         <div className="hidden md:flex bg-gray-100 items-center h-9 p-3 rounded-full gap-3">
           <input type="text" className="bg-gray-100" />
           <Image src={search} alt="search" width={16} height={16} />
