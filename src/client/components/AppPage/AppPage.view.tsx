@@ -13,7 +13,7 @@ import cardboard from "./assets/cardboard.svg";
 
 import { AppPageProps } from "./AppPage.types";
 import useController from "./AppPage.controller";
-import { COLUMNS } from "./AppPage.constants";
+import { COLUMNS, USER_IMAGES } from "./AppPage.constants";
 
 function AppPage({ initialData = null }: AppPageProps) {
   const { handleDragEnd, data, loading } = useController();
@@ -38,11 +38,16 @@ function AppPage({ initialData = null }: AppPageProps) {
             </div>
             <div className="flex justify-end gap-4 items-center">
               <div className="flex items-center">
-                <UserDisplay id={-1} />
-                <UserDisplay id={-1} className={"-ml-4"} />
-                <UserDisplay id={-1} className={"-ml-4"} />
-                <UserDisplay id={-1} className={"-ml-4"} />
-                <UserDisplay id={-1} className={"-ml-4"} />
+                <UserDisplay id={-1} img={USER_IMAGES[0]} />
+                {USER_IMAGES.slice(1, 6).map((item, index) => (
+                  <UserDisplay
+                    id={-1}
+                    className={"-ml-4"}
+                    key={index}
+                    img={item}
+                  />
+                ))}
+
                 <UserDisplay id={-1} className={"-ml-4"} moreCount={44} />
               </div>
               <div>Menu</div>
