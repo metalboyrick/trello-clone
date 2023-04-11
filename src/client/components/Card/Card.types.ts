@@ -1,16 +1,3 @@
-import { MutableRefObject } from "react";
+import { TCard } from "@/client/types/data";
 
-export interface CardProps {
-  id: number;
-  slot: string;
-  headline: string;
-  description: string;
-  img?: string;
-  tags: string[];
-  // TODO: define user mechanism
-  users: any[];
-  commentCount: number;
-  likes: number;
-  shared: number;
-  order: number;
-}
+export type CardProps = TCard;

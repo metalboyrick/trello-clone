@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
+import { TCard } from "@/client/types/data";
 
 export interface SlotColumnProps {
   name: string;
-
-  // TODO: define proper typings
-  cardData: any[];
+  cardData: TCard[];
 }

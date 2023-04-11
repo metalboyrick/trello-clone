@@ -16,12 +16,16 @@ function SlotColumn({ name, cardData }: SlotColumnProps) {
         <Image src={tripleDotsIcon} alt="triple dots" width={24} height={24} />
       </div>
       <Droppable droppableId={name}>
-        {(provided) => (
-          <div {...provided.droppableProps} ref={provided.innerRef}>
+        {(provided, snapshot) => (
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            className={`${snapshot.isDraggingOver ? "bg-blue-100" : ""}`}
+          >
             {sortedCardData.map((item, index) => (
               <Card key={index} {...item} />
             ))}
-            <AddCardButton />
+            {!snapshot.isDraggingOver && <AddCardButton />}
             {provided.placeholder}
           </div>
         )}
