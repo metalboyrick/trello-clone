@@ -49,10 +49,14 @@ function AppPage({ initialData = null }: AppPageProps) {
           </div>
         </div>
         <div>
-          {loading && <Spinner />}
+          {loading && (
+            <div className="w-full h-full flex justify-center items-center">
+              <Spinner />
+            </div>
+          )}
           {!loading && (
             <DragDropContext onDragEnd={handleDragEnd}>
-              <div className="flex flex-row">
+              <div className="flex flex-row gap-2">
                 <SlotColumn
                   name="Todo"
                   cardData={data.filter((item) => item.slot === "Todo")}

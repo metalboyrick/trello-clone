@@ -2,7 +2,7 @@ import { OnDragEndResponder } from "react-beautiful-dnd";
 
 import useGetCards from "@/client/hooks/queries/useGetCards";
 import usePostMoveCard from "@/client/hooks/mutations/usePostMoveCard";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 function useController() {
   const { data, loading: getCardsLoading, getCards } = useGetCards();
@@ -24,7 +24,7 @@ function useController() {
     await getCards();
   };
 
-  return { handleDragEnd, data, loading: loading };
+  return { handleDragEnd, data, loading };
 }
 
 export default useController;
